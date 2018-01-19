@@ -57,6 +57,7 @@ body {
   font-weight: lighter;
   line-height: 28px;
   transition: 0.3s;
+  font-family: 'Poppins', sans-serif;
 }
 
 .linkout a:hover,
@@ -79,7 +80,7 @@ body {
   width: 100%;
   color: #333333;
   font-size: 3em;
-  font-family: 'Montserrat-Medium', sans-serif;
+  font-family: 'Poppins', sans-serif;
   text-align: left;
   margin-top: 1em;
   margin-bottom: 20px;
@@ -114,7 +115,7 @@ body {
   width: 100%;
   color: #5D5D5D;
   font-size: 20px;
-  font-family: 'Montserrat-Medium', sans-serif;
+  font-family: 'Poppins', sans-serif;
   text-align: left;
   font-weight: normal;
 }
@@ -145,7 +146,7 @@ body {
   border-bottom-color: #D0D0D0;
   background: #FCFCFC;
 
-  font-family: 'Montserrat-Medium', sans-serif;
+  font-family: 'Poppins', sans-serif;
   padding: 20px !important;
 }
 
@@ -530,7 +531,7 @@ body {
   color: #333333;
   margin-top: 10px;
   font-size: 1.5em;
-  font-family: 'Montserrat-Medium', sans-serif;
+  font-family: 'Poppins', sans-serif;
   vertical-align: center;
 }
 
@@ -539,7 +540,7 @@ body {
   color: #333333;
   font-size: 1.1em;
   line-height: 1.6em;
-  font-family: 'Montserrat-Medium', sans-serif;
+  font-family: 'Poppins', sans-serif;
   text-align: left;
 }
 
