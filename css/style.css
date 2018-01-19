@@ -1,57 +1,21 @@
 @font-face {
-	font-family: 'arrows';
-	src:url('../fonts/arrows/arrows.eot');
-	src:url('../fonts/arrows/arrows.eot?#iefix') format('embedded-opentype'),
-		url('../fonts/arrows/arrows.woff') format('woff'),
-		url('../fonts/arrows/arrows.ttf') format('truetype'),
-		url('../fonts/arrows/arrows.svg#arrows') format('svg');
-	font-weight: normal;
-	font-style: normal;
-}
-
-@font-face {
-    font-family: "Rockwell";
-    src: url(../fonts/PlayfairDisplay-Italic.ttf) format("truetype");
-}
-
-@font-face {
-    font-family: "Quicksand";
-    src: url(../fonts/Quicksand-Regular.ttf) format("truetype");
-}
-
-@font-face {
-    font-family: "Didact Gothic";
-    src: url(../fonts/DidactGothic-Regular.ttf) format("truetype");
-}
-
-@font-face {
     font-family: "Montserrat-Bold";
     src: url(../fonts/Montserrat-Bold.ttf) format("truetype");
 }
 
 @font-face {
-    font-family: "Montserrat-Medium";
-    src: url(../fonts/Montserrat-Medium.ttf) format("truetype");
-}
-
-@font-face {
-    font-family: "Montserrat-Light";
-    src: url(../fonts/Montserrat-Light.ttf) format("truetype");
-}
-
-@font-face {
-    font-family: "Montserrat";
+    font-family: "Montserrat-Regular";
     src: url(../fonts/Montserrat-Regular.ttf) format("truetype");
 }
 
 @font-face {
-    font-family: "Rockwell";
-    src: url(../fonts/rockwen.ttf) format("truetype");
+    font-family: "Montserrat-SemiBold";
+    src: url(../fonts/Montserrat-SemiBold.ttf) format("truetype");
 }
 
 @font-face {
-    font-family: "Metropolis";
-    src: url(../fonts/Metropolis-Regular.otf) format("truetype");
+    font-family: "Poppins";
+    src: url(../fonts/Poppins-Regular.ttf) format("truetype");
 }
 
 body {
