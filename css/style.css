@@ -23,6 +23,35 @@ body {
   width: 100%;
 }
 
+.title-btn {
+  text-align: center;
+  padding: 10px;
+  border-radius: 4px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #34B1E1;
+  transition: 0.3s;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  color: #34B1E1;
+  background: transparent;
+  margin-bottom: 10px;
+}
+
+.title-btn:hover, .title-btn:focus {
+  cursor: pointer;
+  background: rgba(52,177,225,0.1);
+  text-decoration: none !important;
+}
+
+.titlelink:hover, .titlelink:focus {
+  text-decoration: none !important;
+}
+
+.fa-info-circle {
+  margin-right: 4px;
+}
+
 .header {
 	transition: 0.3s;
 	height: 60px;
@@ -54,7 +83,7 @@ body {
 .linkout a {
   color: white;
   font-size: 18px;
-  font-weight: lighter;
+  font-weight: normal;
   line-height: 28px;
   transition: 0.3s;
   font-family: 'Poppins', sans-serif;
