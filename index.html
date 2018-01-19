@@ -194,12 +194,15 @@
             cell.id = "techtalk";
           }
 
-
-
           var cellLocation = document.createElement("div");
 					var locationText = document.createTextNode("Location: " + data.location);
           cellLocation.appendChild(locationText);
           cellLocation.className = "event-location";
+
+					var now = new Date();
+					if (now > startDate) {
+						cell.className = "greyedout";
+					}
 
 					cell.appendChild(cellTitle);
           cell.appendChild(cellDay);

@@ -566,6 +566,10 @@ body {
   transition: 0.3s;
 }
 
+.greyedout {
+  opacity: 0.4 !important;
+}
+
 .green {
   background: #6C9668;
 }
