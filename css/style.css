@@ -48,7 +48,7 @@ body {
   text-decoration: none !important;
 }
 
-.fa-info-circle {
+.fa-info-circle, .fa-question-circle {
   margin-right: 4px;
 }
 
