@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
+		<title>SwampHacks Live!</title>
+		<meta name="description" content="
+
+		SwampHacks is a 36 hour open coding event where students become creators.
+		In the time allotted, students from around the country come together at the
+		University of Florida to collaborate on projects, mingle in activities, and
+		network with sponsors for a fully immersive experience.
+
+		"/>
+		<!-- Stylesheets
+    ================================================== -->
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+		<link href="https://fortawesome.github.io/Font-Awesome/assets/font-awesome/css/font-awesome.css" rel="stylesheet">
+		<!-- Favicon
+    ================================================== -->
+   	<link rel="icon" type="image/png" href="favicon.png" />
+		<!-- Icons & Fonts
+		================================================== -->
+		<link rel="stylesheet" href="css/font-awesome.min.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<!-- MLH Badge
+		================================================== -->
+		<!-- <a id="mlh-trust-badge" style="display:block;max-width:100px;min-width:60px;position:absolute;right:50px;top:0;width:10%;z-index:0" href="https://mlh.io/seasons/na-2018/events?utm_source=na-2018&utm_medium=TrustBadge&utm_campaign=na-2018&utm_content=white" target="_blank"><img src="https://s3.amazonaws.com/logged-assets/trust-badge/2018/white.svg" alt="Major League Hacking 2017 Hackathon Season" style="width:100%"></a> -->
+	</head>
+
+  <body>
+
+    <section class="header">
+			<div class="col-md-12 head linkfoot">
+				<div class="linkcontainer">
+					<div class="linkout"><a class="footlink" href="#" id=""><span class="selected">Main Info</span></a></div>
+					<div class="linkout"><a class="footlink" href="stats.html" id="">Event Stats</a></div>
+					<div class="linkout"><a class="footlink" href="sponsors.html" id="">Sponsors</a></div>
+				</div>
+			</div>
+		</section>
+
+    <section id="mainInformation">
+
+      <div class="container">
+
+        <div class="row">
+
+          <div id="eventsSchedule" class="col-md-6">
+
+            <div class="header-main-type">Events</div>
+
+            <div id="table-con"></div>
+
+          </div>
+
+          <div id="mapsPics" class="col-md-6">
+
+            <div class="header-main-type">Maps</div>
+
+            <div class="header-sub-type">First Floor Marston</div>
+            <img class="map-img" src="img/marstonfirst.png"></img>
+
+            <div class="header-sub-type">Marston Basement</div>
+            <img class="map-img" src="img/marstonbasement.png"></img>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+
+    <script src="js/menu.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/classie.js"></script>
+    <script src="js/jquerycsv.js"></script>
+  </body>
+
+  <script src="https://www.gstatic.com/firebasejs/3.7.6/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/3.7.6/firebase-auth.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/3.7.6/firebase-database.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/3.7.6/firebase.js"></script>
+	<script src="https://cdn.firebase.com/js/client/2.3.1/firebase.js"></script>
+  <script>
+
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyCkPM5Ta8WgzxpOP6O9WuLWD6Irkd6GAPc",
+      authDomain: "swamphacks-applicants.firebaseapp.com",
+      databaseURL: "https://swamphacks-applicants.firebaseio.com",
+      projectId: "swamphacks-applicants",
+      storageBucket: "swamphacks-applicants.appspot.com",
+      messagingSenderId: "622854578748"
+    };
+    firebase.initializeApp(config);
+
+  </script>
+
+  <script>
+
+    var ref = firebase.database().ref();
+    var usersRef = ref.child("applicants");
+    var acceptedRef = ref.child("accepted");
+    var checkedInRef = ref.child("confirmed");
+    var eventsDataRef = ref.child("eventsData");
+    var eventsRef = ref.child("events");
+
+    makeEventsTable();
+
+    function makeEventsTable() {
+		  // get the reference for the body
+		  var body = document.getElementById("table-con")
+
+		  // creates a <table> element and a <tbody> element
+		  var tbl = document.createElement("table");
+		  var tblBody = document.createElement("tbody");
+
+			eventsRef.once("value", function(data) {
+
+				data.forEach(function(child){
+					// creates a table row
+          var data = child.val();
+					var row = document.createElement("tr");
+
+					var cell = document.createElement("td");
+
+          var cellTitle = document.createElement("div");
+					var titleText = document.createTextNode(data.name);
+          cellTitle.appendChild(titleText);
+          cellTitle.className = "event-title";
+
+          var startDate = new Date(data.startTime * 1000);
+          var hour = startDate.getHours();
+          var minutes = startDate.getMinutes();
+          var day = startDate.getDate();
+
+          var endDate = new Date(data.endTime * 1000);
+          var hour2 = endDate.getHours();
+          var minutes2 = endDate.getMinutes();
+
+          var cellTimes = document.createElement("div");
+
+          if (day === 19) {
+            day = "Friday"
+          } else if (day === 20) {
+            day = "Saturday"
+          } else if (day === 21) {
+            day = "Sunday"
+          }
+
+          var cellDay = document.createElement("div");
+          var dayText = document.createTextNode(day);
+          cellDay.appendChild(dayText);
+          cellDay.className = "event-day";
+
+          if (minutes === 0) {
+            minutes = "00";
+          }
+
+          if (minutes2 === 0) {
+            minutes2 = "00";
+          }
+
+          if (hour > 12) {
+            hour = hour - 12;
+          } else if (hour === 0) {
+            hour = 12;
+          }
+
+          if (hour2 > 12) {
+            hour2 = hour2 - 12;
+          } else if (hour2 === 0) {
+            hour2 = 12;
+          }
+
+          var timesText = document.createTextNode(hour + ":" + minutes + "pm - " + hour2 + ":" + minutes2 + "pm");
+
+          cellTimes.appendChild(timesText);
+          cellTimes.className = "event-times";
+
+          if (data.type === "Logistics") {
+            cell.id = "logistics";
+          } else if (data.type === "Food") {
+            cell.id = "food";
+          } else if (data.type === "Social") {
+            cell.id = "social";
+          } else if (data.type === "Techtalk") {
+            cell.id = "techtalk";
+          }
+
+
+
+          var cellLocation = document.createElement("div");
+					var locationText = document.createTextNode("Location: " + data.location);
+          cellLocation.appendChild(locationText);
+          cellLocation.className = "event-location";
+
+					cell.appendChild(cellTitle);
+          cell.appendChild(cellDay);
+          cell.appendChild(cellTimes);
+          cell.appendChild(cellLocation);
+					row.appendChild(cell);
+
+					// add the row to the end of the table body
+					tblBody.appendChild(row);
+    		});
+
+			});
+
+		  // put the <tbody> in the <table>
+		  tbl.appendChild(tblBody);
+		  // appends <table> into <body>
+		  body.appendChild(tbl);
+		  // sets the border attribute of tbl to 2;
+		  tbl.setAttribute("border", "none");
+		  tbl.setAttribute("width", "100%");
+		}
+
+  </script>
+
+</html>
