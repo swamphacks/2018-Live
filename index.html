@@ -168,19 +168,19 @@
             minutes2 = "00";
           }
 
-          if (hour > 12) {
-            hour = hour - 12;
-          } else if (hour === 0) {
-            hour = 12;
-          }
+					var time = "";
+					var amPM1 = (hour > 11) ? "pm" : "am";
+					var amPM2 = (hour2 > 11) ? "pm" : "am";
 
-          if (hour2 > 12) {
-            hour2 = hour2 - 12;
-          } else if (hour2 === 0) {
-            hour2 = 12;
-          }
+					hour = (hour > 11) ? hour - 12 : hour;
+					hour2 = (hour2 > 11) ? hour2 - 12 : hour2;
 
-          var timesText = document.createTextNode(hour + ":" + minutes + "pm - " + hour2 + ":" + minutes2 + "pm");
+					hour = (hour === 0) ? 12 : hour;
+					hour2 = (hour2 === 0) ? 12 : hour2;
+
+					time = hour + ":" + minutes + amPM1 + " - " + hour2 + ":" + minutes2 + amPM2;
+
+					var timesText = document.createTextNode(time);
 
           cellTimes.appendChild(timesText);
           cellTimes.className = "event-times";
