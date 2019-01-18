@@ -121,6 +121,10 @@ body {
   text-align: center;
 }
 
+.gatortitle {
+  margin-top: 1em !important;
+}
+
 .herontitle {
   margin-top: 1em !important;
 }
@@ -283,6 +287,14 @@ body {
 
 .bottom-sp-row {
 	margin-bottom: 100px !important;
+}
+
+#citiImg {
+  width: 300px;
+}
+
+#infoTechlogo {
+  width: 250px !important;
 }
 
 #bahimg {
