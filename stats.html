@@ -16,7 +16,7 @@
 		<!-- Stylesheets
     ================================================== -->
     <link rel="stylesheet" type="text/css" href="css/style.css" />
-		<link href="https://fortawesome.github.io/Font-Awesome/assets/font-awesome/css/font-awesome.css" rel="stylesheet">
+		<!-- <link href="https://fortawesome.github.io/Font-Awesome/assets/font-awesome/css/font-awesome.css" rel="stylesheet"> -->
 		<!-- Favicon
     ================================================== -->
    	<link rel="icon" type="image/png" href="favicon.png" />
@@ -55,12 +55,12 @@
 
           <h3 class="header-sub-type top-margin">Events Stats<span class="circle-ticker"></span><span class="live-ticker">LIVE</span></h3>
 
-          <p class="descrip-txt"><br>
+          <!-- <p class="descrip-txt"><br>
             Number of people checked-in to events per team.
-          </p>
+          </p> -->
         </div>
 
-        <div class="col-md-3 top-margin">
+        <!-- <div class="col-md-3 top-margin">
           <div class="padder">
             <div class="notifnew">
               <p class="notif-txt stat-txt">Dragonflies <span class="statusnew green" id="teamOneSize">--</span></p>
@@ -87,7 +87,7 @@
               <p class="notif-txt stat-txt">Gators <span class="statusnew green" id="teamFourSize">--</span></p>
             </div>
           </div>
-        </div>
+        </div> -->
 
         <div class="col-md-12 top-margin">
           <p class="descrip-txt"><br>
@@ -129,7 +129,7 @@
 
     </section>
 
-  <script src="js/menu.js"></script>
+  <!-- <script src="js/menu.js"></script> -->
   <script src="js/jquery.js"></script>
   <script src="js/classie.js"></script>
   <script src="js/jquerycsv.js"></script>
@@ -144,12 +144,12 @@
 
   // Initialize Firebase
   var config = {
-    apiKey: "AIzaSyCkPM5Ta8WgzxpOP6O9WuLWD6Irkd6GAPc",
-    authDomain: "swamphacks-applicants.firebaseapp.com",
-    databaseURL: "https://swamphacks-applicants.firebaseio.com",
-    projectId: "swamphacks-applicants",
-    storageBucket: "swamphacks-applicants.appspot.com",
-    messagingSenderId: "622854578748"
+    apiKey: "AIzaSyAPcSN9HohHuNUKOTVJ0Fm3wfoAqUaxzhk",
+    authDomain: "swamphacks-2019.firebaseapp.com",
+    databaseURL: "https://swamphacks-2019.firebaseio.com",
+    projectId: "swamphacks-2019",
+    storageBucket: "swamphacks-2019.appspot.com",
+    messagingSenderId: "243219143648"
   };
   firebase.initializeApp(config);
 
@@ -158,27 +158,24 @@
 <script>
 
   var ref = firebase.database().ref();
-  var usersRef = ref.child("applicants");
-  var acceptedRef = ref.child("accepted");
-  var checkedInRef = ref.child("confirmed");
-  var eventsDataRef = ref.child("eventsData");
+  var teamPointsRef = ref.child("teamPoints");
   var eventsRef = ref.child("events");
 
-  eventsDataRef.on('value', function(snapshot) {
+  teamPointsRef.on('value', function(snapshot) {
 
     var info = snapshot.val();
 
     // Sizes
-    $("#teamOneSize").text(info.people.dragonflies);
-    $("#teamTwoSize").text(info.people.turtles);
-    $("#teamThreeSize").text(info.people.herons);
-    $("#teamFourSize").text(info.people.gators);
+    // $("#teamOneSize").text(info.people.dragonflies);
+    // $("#teamTwoSize").text(info.people.turtles);
+    // $("#teamThreeSize").text(info.people.herons);
+    // $("#teamFourSize").text(info.people.gators);
 
     // Points
-    $("#teamOnePoints").text(info.points.dragonflies);
-    $("#teamTwoPoints").text(info.points.turtles);
-    $("#teamThreePoints").text(info.points.herons);
-    $("#teamFourPoints").text(info.points.gators);
+    $("#teamOnePoints").text(info.Dragonfly);
+    $("#teamTwoPoints").text(info.Turtle);
+    $("#teamThreePoints").text(info.Heron);
+    $("#teamFourPoints").text(info.Gator);
 
   });
 
