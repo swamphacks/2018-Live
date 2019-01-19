@@ -115,7 +115,7 @@
     var eventsDataRef = ref.child("eventsData");
     var eventsRef = ref.child("events");
 
-    // makeEventsTable();
+    makeEventsTable();
 
     function makeEventsTable() {
 		  // get the reference for the body
@@ -139,12 +139,12 @@
           cellTitle.appendChild(titleText);
           cellTitle.className = "event-title";
 
-          var startDate = new Date(data.startTime * 1000);
+          var startDate = new Date(data.startTime);
           var hour = startDate.getHours();
           var minutes = startDate.getMinutes();
           var day = startDate.getDate();
 
-          var endDate = new Date(data.endTime * 1000);
+          var endDate = new Date(data.endTime);
           var hour2 = endDate.getHours();
           var minutes2 = endDate.getMinutes();
 
